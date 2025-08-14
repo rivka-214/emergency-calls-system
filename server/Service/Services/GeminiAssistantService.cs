@@ -18,8 +18,10 @@ public class GeminiAssistantService : IAssistantService
 
     public async Task<string> GetFirstAidInstructionsAsync(string userInput)
     {
+        // טוען את המפתח מתוך appsettings.Secrets.json
         var apiKey = _configuration["Gemini:ApiKey"];
         var url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={apiKey}";
+
         var requestBody = new
         {
             contents = new[]

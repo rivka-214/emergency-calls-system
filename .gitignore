@@ -11,6 +11,7 @@ obj/
 .vs/
 *.user
 *.suo
+appsettings.Secrets.json
 
 # System/IDE
 .DS_Store
