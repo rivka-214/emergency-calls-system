@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+     "target": "es2015",          // ← משנה מ־"es5"
+  "lib": ["dom", "es2015"],     // ← מתאים ל־target
+  "downlevelIteration": true, 
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "src"
+  ]
+}

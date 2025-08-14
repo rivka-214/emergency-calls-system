@@ -1,0 +1,10 @@
+/* PageLayout.css */
+.page-layout {
+  position: relative;
+  min-height: 100vh;
+}
+
+.page-container {
+  position: relative;
+  z-index: 1;
+}

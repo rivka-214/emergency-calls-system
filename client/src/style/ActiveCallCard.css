@@ -1,0 +1,513 @@
+/* Modern Active Call Card Styles */
+.active-call-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  min-height: 380px;
+  max-height: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+.active-call-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.active-call-card.urgent {
+  border: 2px solid #ff4757;
+  box-shadow: 0 8px 30px rgba(255, 71, 87, 0.3);
+}
+
+.active-call-card.urgent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #ff4757, #ff3742);
+}
+
+/* Call Card Header */
+.call-card-header {
+  background: linear-gradient(135deg, #ff4757, #ff3742);
+  color: white;
+  padding: 1.2rem;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-height: 80px;
+  flex-shrink: 0;
+}
+
+.call-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.call-id-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.call-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  color: white;
+}
+
+.call-id-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.call-number {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+}
+
+.call-type {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+/* Priority and Status Badges */
+.priority-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+}
+
+.priority-badge.priority-גבוה,
+.priority-badge.priority-high {
+  background: rgba(255, 255, 255, 0.9);
+  color: #ff4757;
+}
+
+.priority-badge.priority-בינוני,
+.priority-badge.priority-medium {
+  background: rgba(255, 193, 7, 0.9);
+  color: #856404;
+}
+
+.priority-badge.priority-נמוך,
+.priority-badge.priority-low {
+  background: rgba(40, 167, 69, 0.9);
+  color: white;
+}
+
+.status-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9);
+  color: #28a745;
+}
+
+/* Call Details Section */
+.call-details-section {
+  padding: 1.5rem;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 200px;
+}
+
+.detail-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  background: rgba(248, 249, 250, 0.5);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  min-height: 60px;
+}
+
+.detail-row:last-child {
+  margin-bottom: 0;
+}
+
+.detail-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #ff6b7a, #ff4757);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.detail-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.detail-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #666;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-value {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+  word-break: break-word;
+}
+
+/* Details Grid */
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem;
+  background: rgba(248, 249, 250, 0.3);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  min-height: 50px;
+}
+
+.detail-item svg {
+  color: #ff4757;
+  flex-shrink: 0;
+}
+
+.detail-item > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.item-label {
+  font-size: 0.75rem;
+  color: #666;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.item-value {
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.status-pill {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.status-pill.status-going {
+  background: #28a745;
+  color: white;
+}
+
+.status-pill.status-arrived {
+  background: #17a2b8;
+  color: white;
+}
+
+.status-pill.status-pending {
+  background: #ffc107;
+  color: #856404;
+}
+
+.status-pill.status-unknown {
+  background: #6c757d;
+  color: white;
+}
+
+/* Map Buttons */
+.map-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.map-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.map-btn.google-maps {
+  background: #4285f4;
+  color: white;
+}
+
+.map-btn.google-maps:hover {
+  background: #3367d6;
+  transform: translateY(-1px);
+}
+
+.map-btn.waze {
+  background: #00d4aa;
+  color: white;
+}
+
+.map-btn.waze:hover {
+  background: #00c49a;
+  transform: translateY(-1px);
+}
+
+/* Volunteer Count */
+.volunteers-count {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.volunteers-count .count-number {
+  background: linear-gradient(135deg, #ff6b7a, #ff4757);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+/* Action Buttons */
+.call-actions {
+  padding: 1.5rem 2rem;
+  background: rgba(248, 249, 250, 0.3);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.action-section {
+  padding: 1rem 1.5rem;
+  background: rgba(248, 249, 250, 0.3);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 180px;
+  justify-content: center;
+}
+
+.action-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.arrived-btn {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+}
+
+.arrived-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+}
+
+.close-btn {
+  background: linear-gradient(135deg, #ff4757, #ff3742);
+  color: white;
+}
+
+.close-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 71, 87, 0.3);
+}
+
+.info-message {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #666;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.info-message svg {
+  color: #ff4757;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .active-call-card {
+    min-height: 350px;
+  }
+  
+  .details-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .active-call-card {
+    min-height: 320px;
+    max-height: none;
+  }
+  
+  .call-card-header {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: flex-start;
+    min-height: 90px;
+    padding: 1rem;
+  }
+  
+  .call-details-section {
+    padding: 1.2rem;
+    min-height: 160px;
+  }
+  
+  .detail-row {
+    flex-direction: column;
+    gap: 0.6rem;
+    min-height: 50px;
+    padding: 0.6rem;
+  }
+  
+  .map-buttons {
+    width: 100%;
+  }
+  
+  .map-btn {
+    flex: 1;
+    justify-content: center;
+  }
+  
+  .details-grid {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+  
+  .action-section {
+    padding: 1rem;
+    min-height: 50px;
+  }
+  
+  .action-btn {
+    width: 100%;
+    min-width: 0;
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .active-call-card {
+    min-height: 280px;
+  }
+  
+  .call-id-section {
+    flex-direction: column;
+    gap: 0.4rem;
+    align-items: flex-start;
+  }
+  
+  .call-icon {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .detail-icon {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .call-details-section {
+    padding: 1rem;
+    min-height: 140px;
+  }
+  
+  .detail-row {
+    padding: 0.5rem;
+    min-height: 45px;
+  }
+  
+  .detail-item {
+    padding: 0.6rem;
+    min-height: 40px;
+  }
+  
+  .action-section {
+    padding: 0.8rem;
+    min-height: 45px;
+  }
+}

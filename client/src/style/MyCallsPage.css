@@ -1,0 +1,109 @@
+/* Modern Calls Page Styles */
+.calls-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.calls-container {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1000px;
+  backdrop-filter: blur(6px);
+  direction: rtl;
+}
+
+.calls-container h2 {
+  color: #dc2626;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.calls-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.calls-table th,
+.calls-table td {
+  padding: 1rem 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+.calls-table th {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+}
+
+.calls-table tr:hover {
+  background-color: #f8fafc;
+}
+
+.calls-table a {
+  color: #ef4444;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.calls-table a:hover {
+  color: #ff4444;
+  text-decoration: underline;
+}
+
+/* Header section with back button */
+.header-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #ea6666 0%, #a24b4b 100%);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.back-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  background: linear-gradient(135deg, #ef4444 0%, #f97316 100%);
+}
+
+.back-button:active {
+  transform: translateY(0);
+}
+
+.back-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.header-section h2 {
+  flex: 1;
+  text-align: center;
+  margin: 0;
+}

@@ -1,0 +1,1471 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-y: auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.background-layout {
+  min-height: 100vh;
+  width: 100vw;
+  /* שימוש בתמונה מ-Pexels במקום תמונה מקומית */
+  background-image: url("https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: rtl;
+  padding: 2rem;
+  position: relative;
+}
+
+/* הוספת שכבת כהה מעל התמונה לקריאות טובה יותר */
+/* .background-layout::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+} */
+
+
+
+/* כותרות */
+.content-wrapper h1,
+.content-wrapper h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+/* קלטים */
+.content-wrapper input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.8rem;
+  font-size: 1rem;
+  background-color: #fafafa;
+}
+
+/* טפסים */
+.content-wrapper form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* כפתורים */
+.content-wrapper button {
+  padding: 0.9rem;
+  background-color: #d80000;
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.content-wrapper button:hover {
+  background-color: #b00000;
+}
+
+/* כפתור חירום ראשי גדול */
+.regular-btn { 
+  width: min(120vw, 450px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #ff4757, #ff3742);
+  color: white;
+  font-weight: bold;
+  border: none;
+  box-shadow: 
+    0 20px 40px rgba(255, 71, 87, 0.4),
+    inset 0 -5px 10px rgba(0, 0, 0, 0.2),
+    inset 0 5px 10px rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 2rem auto;
+}
+
+.btn-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 1rem;
+}
+
+.emergency-text {
+  font-size: clamp(2rem, 8vw, 4rem);
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.emergencysos-text {
+  font-size: clamp(0.8rem, 3vw, 1.2rem);
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.regular-btn:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 
+    0 25px 50px rgba(255, 71, 87, 0.5),
+    inset 0 -5px 10px rgba(0, 0, 0, 0.2),
+    inset 0 5px 10px rgba(255, 255, 255, 0.2);
+}
+
+.regular-btn:active {
+  transform: translateY(-2px) scale(0.98);
+  box-shadow: 
+    0 15px 30px rgba(255, 71, 87, 0.4),
+    inset 0 -3px 8px rgba(0, 0, 0, 0.3),
+    inset 0 3px 8px rgba(255, 255, 255, 0.1);
+}
+
+.emergency-icon {
+  font-size: clamp(3rem, 8vw, 5rem);
+  animation: pulse 2s infinite;
+}
+
+/* כפתור SOS קטן */
+.emergency-btn {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(145deg, #ffa502, #ff6348);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  box-shadow: 
+    0 10px 20px rgba(255, 165, 2, 0.3),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.2),
+    inset 0 3px 6px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  z-index: 3;
+}
+
+.emergency-btn:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 
+    0 15px 25px rgba(255, 165, 2, 0.4),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.2),
+    inset 0 3px 6px rgba(255, 255, 255, 0.2);
+}
+
+.emergency-btn:active {
+  transform: translateY(-1px) scale(1.05);
+}
+
+/* אנימציות */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* עיצוב רספונסיבי */
+@media (max-width: 768px) {
+  .background-layout {
+    padding: 1rem;
+  }
+  
+  .content-wrapper {
+    padding: 2rem;
+    min-width: 300px;
+  }
+  
+  .regular-btn {
+    width: min(90vw, 350px);
+  }
+  
+  .emergency-btn {
+    width: 80px;
+    height: 80px;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-wrapper {
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+  }
+  
+  .regular-btn {
+    width: min(85vw, 280px);
+  }
+  
+  .emergency-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 0.9rem;
+  }
+}
+.background-layout {
+  min-height: 100vh; /* ✨ שימי לב – min-height ולא height */
+  width: 100vw;
+  background-image: url("https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-start; /* ✨ אם רוצים שהתוכן יתחיל מלמעלה */
+  justify-content: center;
+  direction: rtl;
+  padding: 2rem;
+}
+.content-wrapper {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 3rem;
+  border-radius: 2rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  min-width: 350px;
+  max-width: 900px; /* 👈 שינוי כאן */
+  width: 100%;
+}
+
+/* כותרות */
+.content-wrapper h1,
+.content-wrapper h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+/* קלטים */
+.content-wrapper input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.8rem;
+  font-size: 1rem;
+  background-color: #fafafa;
+}
+
+/* טפסים */
+.content-wrapper form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* כפתורים */
+.content-wrapper button {
+  padding: 0.9rem;
+  background-color: #d80000;
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.content-wrapper button:hover {
+  background-color: #b00000;
+}
+
+/* כפתור חירום ראשי גדול */
+.regular-btn { 
+   width: min(120vw, 450px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+   
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #ff4757, #ff3742);
+  color: white;
+
+  font-weight: bold;
+  border: none;
+  box-shadow: 
+    0 20px 40px rgba(255, 71, 87, 0.4),
+    inset 0 -5px 10px rgba(0, 0, 0, 0.2),
+    inset 0 5px 10px rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+
+.emergency-text {
+  font-size: 100px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  line-height: 1.2;
+}
+.emergencysos-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.regular-btn:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 
+    0 25px 50px rgba(255, 71, 87, 0.5),
+    inset 0 -5px 10px rgba(0, 0, 0, 0.2),
+    inset 0 5px 10px rgba(255, 255, 255, 0.2);
+}
+
+.regular-btn:active {
+  transform: translateY(-2px) scale(0.98);
+  box-shadow: 
+    0 15px 30px rgba(255, 71, 87, 0.4),
+    inset 0 -3px 8px rgba(0, 0, 0, 0.3),
+    inset 0 3px 8px rgba(255, 255, 255, 0.1);
+}
+.emergency-icon {
+  font-size: clamp(3rem, 8vw, 5rem);
+  animation: pulse 2s infinite;
+}
+
+
+
+/* כפתור SOS קטן */
+.emergency-btn {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(145deg, #ffa502, #ff6348);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  box-shadow: 
+    0 10px 20px rgba(255, 165, 2, 0.3),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.2),
+    inset 0 3px 6px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.emergency-btn:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 
+    0 15px 25px rgba(255, 165, 2, 0.4),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.2),
+    inset 0 3px 6px rgba(255, 255, 255, 0.2);
+}
+
+.emergency-btn:active {
+  transform: translateY(-1px) scale(1.05);
+}
+
+
+
+.regular-call-btn:active {
+  transform: translateY(-1px);
+}
+
+.btn-icon {
+  font-size: 1.4rem;
+}
+
+/* אנימציות */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* עיצוב כללי לכפתורים שניתן לייבא בקומפוננטות אחרות */
+.modern-btn {
+  border: none;
+  border-radius: 25px;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 8px 16px rgba(0, 0, 0, 0.1),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.1),
+    inset 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.modern-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 20px rgba(0, 0, 0, 0.15),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.1),
+    inset 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.modern-btn:active {
+  transform: translateY(0);
+}
+/* עיצוב כללי לדף חירום */
+.emergency-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.emergency-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+}
+
+/* כפתור חירום ראשי גדול */
+.main-emergency-btn {
+  width: 75vw;
+  height: 75vw;
+  max-width: 400px;
+  max-height: 400px;
+  min-width: 280px;
+  min-height: 280px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(145deg, #ff4757, #ff3742);
+  color: white;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 
+    0 20px 40px rgba(255, 71, 87, 0.4),
+    inset 0 -5px 10px rgba(0, 0, 0, 0.2),
+    inset 0 5px 10px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.main-emergency-btn:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 
+    0 25px 50px rgba(255, 71, 87, 0.5),
+    inset 0 -5px 10px rgba(0, 0, 0, 0.2),
+    inset 0 5px 10px rgba(255, 255, 255, 0.2);
+}
+
+.main-emergency-btn:active {
+  transform: translateY(-2px) scale(0.98);
+  box-shadow: 
+    0 15px 30px rgba(255, 71, 87, 0.4),
+    inset 0 -3px 8px rgba(0, 0, 0, 0.3),
+    inset 0 3px 8px rgba(255, 255, 255, 0.1);
+}
+
+.btn-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 1rem;
+}
+
+.emergency-icon {
+  font-size: clamp(3rem, 8vw, 5rem);
+  animation: pulse 2s infinite;
+}
+
+.emergency-text {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* כפתור SOS קטן */
+.sos-btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(145deg, #ffa502, #ff6348);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  box-shadow: 
+    0 10px 20px rgba(255, 165, 2, 0.3),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.2),
+    inset 0 3px 6px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.sos-btn:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 
+    0 15px 25px rgba(255, 165, 2, 0.4),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.2),
+    inset 0 3px 6px rgba(255, 255, 255, 0.2);
+}
+
+.sos-btn:active {
+  transform: translateY(-1px) scale(1.05);
+}
+
+/* תפריט מתנדב - עיצוב נורמלי ונקי */
+.volunteer-menu-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.menu-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 3rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.menu-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  min-height: 200px;
+  backdrop-filter: blur(10px);
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  border-color: #d80000;
+  text-decoration: none;
+  color: #333;
+}
+
+.menu-card:visited,
+.menu-card:link {
+  text-decoration: none;
+  color: #333;
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #d80000;
+}
+
+.card-subtitle {
+  font-size: 1rem;
+  color: #666;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* עיצוב רספונסיבי */
+@media (max-width: 768px) {
+  .volunteer-menu-container {
+    padding: 1.5rem;
+  }
+  
+  .menu-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .menu-card {
+    padding: 2rem 1.5rem;
+    min-height: 180px;
+  }
+  
+  .card-icon {
+    font-size: 2.5rem;
+  }
+  
+  .card-title {
+    font-size: 1.3rem;
+  }
+  
+  .card-subtitle {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .volunteer-menu-container {
+    padding: 1rem;
+  }
+  
+  .menu-title {
+    font-size: 1.8rem;
+  }
+  
+  .menu-card {
+    padding: 1.5rem 1rem;
+    min-height: 160px;
+  }
+  
+  .card-icon {
+    font-size: 2rem;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+  }
+}/* עדכון פרטי מתנדב - עיצוב נורמלי ונקי */
+.update-volunteer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  min-height: 80vh;
+}
+
+/* כרטיס פרטי המתנדב */
+.volunteer-info-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  height: fit-content;
+}
+
+.info-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.info-icon {
+  font-size: 1.8rem;
+}
+
+.info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1rem;
+  background: rgba(248, 249, 250, 0.8);
+  border-radius: 12px;
+  border-right: 4px solid #d80000;
+}
+
+.info-label {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.info-value {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 600;
+}
+
+/* כרטיס טופס עדכון */
+.form-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  height: fit-content;
+}
+
+.form-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.form-icon {
+  font-size: 1.8rem;
+}
+
+.update-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+.form-input {
+  padding: 1rem;
+  border: 2px solid rgba(220, 220, 220, 0.8);
+  border-radius: 12px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: #d80000;
+  box-shadow: 0 0 0 3px rgba(216, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 1);
+}
+
+.form-input::placeholder {
+  color: #999;
+}
+
+.submit-btn {
+  background: linear-gradient(145deg, #d80000, #b00000);
+  color: white;
+  border: none;
+  padding: 1.2rem 2rem;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(216, 0, 0, 0.3);
+  margin-top: 1rem;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(216, 0, 0, 0.4);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+}
+
+/* עיצוב רספונסיבי */
+@media (max-width: 968px) {
+  .update-volunteer-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .volunteer-info-card,
+  .form-card {
+    padding: 1.5rem;
+  }
+  
+  .info-title,
+  .form-title {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .update-volunteer-container {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .volunteer-info-card,
+  .form-card {
+    padding: 1.2rem;
+    border-radius: 15px;
+  }
+  
+  .info-item {
+    padding: 0.8rem;
+  }
+  
+  .form-input {
+    padding: 0.8rem;
+  }
+  
+  .submit-btn {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .update-volunteer-container {
+    padding: 0.5rem;
+  }
+  
+  .volunteer-info-card,
+  .form-card {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+  
+  .info-title,
+  .form-title {
+    font-size: 1.2rem;
+  }
+  
+  .info-icon,
+  .form-icon {
+    font-size: 1.5rem;
+  }
+}
+
+
+:root {
+  --primary-color: #ef4444;
+  --secondary-color: #f97316;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --danger-color: #dc2626;
+  --bg-primary: #fef2f2;
+  --bg-secondary: #ffffff;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --border-color: #fee2e2;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --border-radius: 12px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Page Layout */
+.volunteer-calls-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ea6666 0%, #c92626 100%);
+  padding: 2rem 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.02em;
+}
+
+.page-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+/* Stats Cards */
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.stat-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.stat-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+  position: relative;
+}
+
+.stat-icon.active {
+  background: linear-gradient(135deg, var(--primary-color), #dc2626);
+}
+
+.stat-icon.progress {
+  background: linear-gradient(135deg, var(--success-color), #059669);
+}
+
+.stat-icon.pending {
+  background: linear-gradient(135deg, var(--warning-color), #d91806);
+}
+
+.stat-text h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.stat-text p {
+  color: var(--text-secondary);
+  margin: 0;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+/* Call Cards */
+.calls-container {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.call-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.call-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 5px;
+  background: var(--primary-color);
+}
+
+.call-card.status-pending::before {
+  background: var(--warning-color);
+}
+
+.call-card.status-in-progress::before {
+  background: var(--success-color);
+}
+
+.call-card.status-on-way::before {
+  background: var(--primary-color);
+}
+
+.call-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.call-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.call-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.call-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.call-details h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.call-details p {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.call-status {
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.call-status.pending {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning-color);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.call-status.in-progress {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success-color);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.call-status.on-way {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--primary-color);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.call-description {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+  border-right: 4px solid var(--primary-color);
+}
+
+.call-location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  min-width: 120px;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-success {
+  background: var(--success-color);
+  color: white;
+}
+
+.btn-success:hover {
+  background: #059669;
+  transform: translateY(-2px);
+}
+
+.btn-warning {
+  background: var(--warning-color);
+  color: white;
+}
+
+.btn-warning:hover {
+  background: #d97706;
+  transform: translateY(-2px);
+}
+
+.btn-danger {
+  background: var(--danger-color);
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: var(--shadow-xl);
+  position: relative;
+  direction: rtl;
+}
+
+.modal-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.modal-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1rem;
+  background: linear-gradient(135deg, var(--danger-color), #dc2626);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.modal-body {
+  margin-bottom: 2rem;
+}
+
+.modal-info {
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.modal-info p {
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.modal-actions .btn {
+  flex: 1;
+  max-width: 150px;
+}
+
+/* Form Styles */
+.form {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.form h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.form textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  transition: var(--transition);
+  margin-bottom: 1.5rem;
+  direction: rtl;
+}
+
+.form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form button {
+  width: 100%;
+  padding: 1rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+
+
+/* Loading Animation */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.empty-state-icon {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.empty-state h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.empty-state p {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .volunteer-calls-page {
+    padding: 1rem;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+  }
+  
+  .stats-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .call-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .actions {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+  
+  .modal-content {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .modal-actions {
+    flex-direction: column;
+  }
+  
+  .modal-actions .btn {
+    max-width: none;
+  }
+}

@@ -1,0 +1,576 @@
+/* Modern Color Palette - Bright Red Theme */
+:root {
+  /* Primary Colors - Bright Red Instead of Blue */
+  --primary-red: #ff4757;
+  --primary-red-light: #ff6b7a;
+  --primary-red-dark: #ff3742;
+  
+  /* Emergency Colors - Brighter & Lighter Red */
+  --emergency-red: #ff4757;
+  --emergency-red-light: #ff6b7a;
+  --emergency-red-dark: #ff3742;
+  --emergency-bg: #fff5f5;
+  --emergency-border: #ffcdd2;
+  
+  /* Success Colors - Brighter Green */
+  --success-green: #2ed573;
+  --success-green-light: #7bed9f;
+  --success-green-dark: #27ae60;
+  --success-bg: #f0fff4;
+  
+  /* Warning Colors - Bright Orange */
+  --warning-orange: #ffa502;
+  --warning-orange-light: #ffb833;
+  --warning-orange-dark: #ff8f00;
+  --warning-bg: #fff8e1;
+  
+  /* Neutral Colors */
+  --text-primary: #2f3542;
+  --text-secondary: #747d8c;
+  --text-light: #a4b0be;
+  --text-white: #ffffff;
+  
+  /* Background Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #e9ecef;
+  --bg-overlay: rgba(0, 0, 0, 0.5);
+  
+  /* Border Colors */
+  --border-light: #dee2e6;
+  --border-medium: #ced4da;
+  --border-dark: #adb5bd;
+  
+  /* Shadow Colors */
+  --shadow-light: 0 2px 4px rgba(255, 71, 87, 0.1);
+  --shadow-medium: 0 4px 12px rgba(255, 71, 87, 0.15);
+  --shadow-heavy: 0 8px 25px rgba(255, 71, 87, 0.2);
+  
+  /* Gradient Colors - All Red Based */
+  --gradient-red: linear-gradient(135deg, #ff6b7a, #ff4757);
+  --gradient-emergency: linear-gradient(135deg, #ff6b7a, #ff4757);
+  --gradient-success: linear-gradient(135deg, #7bed9f, #2ed573);
+  --gradient-neutral: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  
+  /* Common Values */
+  --border-radius: 0.75rem;
+  --border-radius-sm: 0.5rem;
+  --border-radius-lg: 1rem;
+  --transition: all 0.3s ease;
+}
+
+/* Modern Form Styles */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.form-select {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid var(--border-light);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  background: var(--bg-primary);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: var(--primary-red);
+  box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.1);
+  background: var(--bg-primary);
+}
+
+.form-file-input {
+  padding: 12px !important;
+  border-style: dashed !important;
+  border-color: var(--border-medium) !important;
+  background: var(--bg-secondary) !important;
+  cursor: pointer;
+  border-radius: var(--border-radius) !important;
+}
+
+.form-file-input:hover {
+  border-color: var(--primary-red) !important;
+  background: var(--bg-tertiary) !important;
+}
+
+/* Modern Emergency Submit Button */
+.emergency-submit-btn {
+  background: var(--gradient-emergency) !important;
+  color: var(--text-white) !important;
+  border: none !important;
+  border-radius: var(--border-radius) !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: var(--transition) !important;
+  box-shadow: var(--shadow-medium) !important;
+  padding: 16px 24px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.emergency-submit-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: var(--shadow-heavy) !important;
+  background: linear-gradient(135deg, var(--emergency-red-light), var(--emergency-red-dark)) !important;
+}
+
+/* Modern Success Messages */
+.success-text {
+  color: var(--success-green);
+  font-weight: 500;
+}
+
+.error-text {
+  color: var(--emergency-red);
+  font-weight: 500;
+}
+
+/* Modern Call Confirmation Styles */
+.call-id-text {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+.volunteers-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.refresh-btn {
+  margin-top: 16px;
+  padding: 10px 16px;
+  background: var(--primary-red);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.refresh-btn:hover {
+  background: var(--primary-red-dark);
+}
+
+/* Modern Emergency Call Confirmation */
+.emergency-success-banner {
+  background: var(--gradient-red);
+  color: var(--text-white);
+  padding: 2rem;
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+  margin: 2rem 0;
+  box-shadow: var(--shadow-heavy);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.emergency-success-banner h2 {
+  color: var(--text-white);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.emergency-success-banner p {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  opacity: 0.95;
+}
+
+.call-sent-indicator {
+  background: var(--success-green);
+  color: var(--text-white);
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  margin: 1rem 0;
+  box-shadow: var(--shadow-medium);
+  display: inline-block;
+}
+
+/* Modern Confirmation Cards */
+.confirmation-card {
+  background: var(--bg-primary);
+  border-radius: var(--border-radius-lg);
+  padding: 2rem;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow-medium);
+  border: 1px solid var(--border-light);
+  border-left: 4px solid var(--primary-red);
+  position: relative;
+}
+
+.confirmation-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.confirmation-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--primary-red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-white);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.emergency-status-badge {
+  background: var(--primary-red);
+  color: var(--text-white);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-block;
+  margin: 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.volunteers-notified {
+  background: var(--bg-secondary);
+  border: 2px solid var(--primary-red);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.volunteers-notified h3 {
+  color: var(--primary-red);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.volunteer-count {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--primary-red);
+  margin: 0.5rem 0;
+}
+
+/* Call Information Display */
+.call-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.call-info-item {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border-left: 4px solid var(--primary-red);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.call-info-label {
+  font-weight: bold;
+  color: var(--primary-red);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.call-info-value {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Emergency Actions Section */
+.emergency-actions {
+  background: var(--emergency-bg);
+  border: 2px solid var(--emergency-border);
+  border-radius: 15px;
+  padding: 2rem;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.emergency-actions h3 {
+  color: var(--primary-red);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.emergency-tip {
+  background: rgba(255, 71, 87, 0.1);
+  border-left: 4px solid var(--primary-red);
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  font-style: italic;
+  color: var(--text-primary);
+}
+
+/* Emergency Alert */
+.emergency-alert {
+  background: var(--gradient-red);
+  color: var(--text-white);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  margin: 1rem 0;
+  box-shadow: var(--shadow-medium);
+}
+
+/* Action Buttons */
+.action-buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  box-shadow: var(--shadow-light);
+}
+
+.action-btn.primary {
+  background: var(--gradient-red);
+  color: white;
+}
+
+.action-btn.secondary {
+  background: var(--gradient-success);
+  color: white;
+}
+
+.action-btn.neutral {
+  background: var(--gradient-neutral);
+  color: var(--text-primary);
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-icon {
+  font-size: 2rem;
+}
+
+.btn-text {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Warning Messages */
+.warning-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 2rem;
+  background: var(--emergency-bg);
+  border: 2px solid var(--emergency-border);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-light);
+}
+
+.warning-icon {
+  font-size: 2rem;
+  color: var(--primary-red);
+}
+
+.warning-content h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--primary-red);
+  margin: 0 0 0.5rem 0;
+}
+
+.warning-content p {
+  margin: 0;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* Loading States */
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--emergency-border);
+  border-top: 2px solid var(--primary-red);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Guide Cards */
+.guide-card {
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+  border: 1px solid var(--border-light);
+  margin-bottom: 1rem;
+}
+
+.guide-header {
+  background: var(--gradient-red);
+  color: white;
+  padding: 1.5rem;
+}
+
+.guide-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.guide-content {
+  padding: 2rem;
+}
+
+.guide-description {
+  margin: 0;
+  line-height: 1.8;
+  color: var(--text-primary);
+  font-size: 1rem;
+  white-space: pre-wrap;
+}
+
+/* Volunteer Cards */
+.volunteers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.volunteer-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-light);
+  border: 1px solid var(--border-light);
+  border-left: 4px solid var(--primary-red);
+  transition: all 0.3s ease;
+}
+
+.volunteer-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.volunteer-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.volunteer-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.volunteer-phone,
+.volunteer-city {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .call-info-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .action-buttons-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .volunteers-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .emergency-success-banner {
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+  
+  .emergency-success-banner h2 {
+    font-size: 1.5rem;
+  }
+  
+  .confirmation-card {
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+  
+  .volunteers-notified {
+    padding: 1rem;
+  }
+  
+  .volunteer-count {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .emergency-success-banner h2 {
+    font-size: 1.3rem;
+  }
+  
+  .call-info-item {
+    padding: 1rem;
+  }
+  
+  .action-btn {
+    padding: 1rem;
+  }
+  
+  .btn-icon {
+    font-size: 1.5rem;
+  }
+  
+  .warning-card {
+    padding: 1rem;
+  }
+}
